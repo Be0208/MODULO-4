@@ -1,0 +1,14 @@
+.red {
+    background-color: red;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transition: 500ms
+}
+.violet {
+    background-color: violet;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transition: 500ms;
+}
