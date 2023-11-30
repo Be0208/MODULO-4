@@ -1,11 +1,9 @@
 // script.js
-const cards = document.querySelectorAll('.card')
-const titulosCards = document.querySelectorAll('.titulo-card')
-const descricaoCards = document.querySelectorAll('.descricao-card')
-const botaoEditar = document.querySelectorAll('.botao-editar')
-const botaoApagar = document.querySelectorAll('.botao-apagar')
-
-
+const cards = document.querySelectorAll('.card');
+const titulosCards = document.querySelectorAll('.titulo-card');
+const descricaoCards = document.querySelectorAll('.descricao-card');
+const botaoEditar = document.querySelectorAll('.botao-editar');
+const botaoApagar = document.querySelectorAll('.botao-apagar');
 
 
 cards.forEach(card => {
@@ -27,4 +25,3 @@ botaoEditar.forEach(card => {
 botaoApagar.forEach(card => {
   card.setAttribute('id', 'botao-apagar')
 })
-
