@@ -28,7 +28,7 @@ body {
   box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.68);
 }
 
-.estilo-customizado {
+#estilo-customizado {
   background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,16 +36,16 @@ body {
   margin: 16px;
 }
 
-.titulo-card {
-  color: #333;
+#titulo-card {
+  color: #2b385b;
 }
 
-.descricao-card {
+#descricao-card {
   color: #555;
 }
 
-.botao-editar,
-.botao-apagar {
+#botao-editar,
+#botao-apagar {
   background-color: #008000;
   color: white;
   border-radius: 15%;
@@ -54,7 +54,7 @@ body {
   cursor: pointer;
 }
 
-.botao-editar:hover,
-.botao-apagar:hover {
+#botao-editar:hover,
+#botao-apagar:hover {
   background-color: #45a049;
 }
