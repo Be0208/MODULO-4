@@ -43,3 +43,17 @@ function addClique(){
     document.querySelector('#contador').innerHTML = clique
 
 }
+
+// _______________ ADDEVENTLISTENER _______________
+
+let counter = 0
+
+let element = document.getElementById('counterr') 
+let button = document.getElementById('btn-increment-counter')
+
+function incrementCounter(){
+    conter++
+    element.textContent = counter
+}
+
+button.addEventListener('click', 'incrementar') //dispara uma função apos clicar
