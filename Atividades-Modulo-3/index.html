@@ -4,14 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seu Nome - Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        section {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <a href="./semana-2/Formulario-Manipulação/index.html">Formulario de Manipulação</a>
-    <a href="./semana-2/exercicio-dom-events/index.html">Eventos Do DOM</a>
-    <a href="./semana-1/Manipulação-do-DOM-1/index.html">manipulação DOM 1</a>
-    <a href="./semana-1/Manipulação-do-DOM-2/index.html">manipulação DOM 2</a>
+    <header>
+        <h1>Seu Nome</h1>
+        <p>Desenvolvedor Web</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Coloque aqui uma breve descrição sobre você e suas habilidades como desenvolvedor web.</p>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos</h2>
+        <div class="project">
+            <h3>Projeto 1</h3>
+            <p>Descrição do projeto 1.</p>
+        </div>
+        <div class="project">
+            <h3>Projeto 2</h3>
+            <p>Descrição do projeto 2.</p>
+        </div>
+        <!-- Adicione mais projetos conforme necessário -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Bernardo. Todos os direitos reservados.</p>
+    </footer>
 </body>
 
 </html>
