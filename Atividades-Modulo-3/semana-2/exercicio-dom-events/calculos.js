@@ -104,4 +104,4 @@ function calcularTotal() {
 
 
 // ----------- DESCOMENTAR PARA ATIVAR
-// numero1()
+numero2()
