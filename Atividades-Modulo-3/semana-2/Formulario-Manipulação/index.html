@@ -63,8 +63,16 @@
             <input value="Financeiro" type="radio" name="Dados">
             <label for="">Financeiro</label>
 
-            <input type="radio" name="Dados">
+            <input value="Recepção" type="radio" name="Dados">
             <label for="">Recepçao</label>
+
+            <input value="Administrativo" type="radio" name="Dados">
+            <label for="">Administrativo</label>
+
+            <input value="Juridico" type="radio" name="Dados">
+            <label for="">Juridico</label>
+
+
             <br><br>
 
             <legend>Area de cargo</legend>
@@ -72,15 +80,23 @@
             <input type="checkbox" name="Area" value="Computaçao" checked>
             <label for="">Computação</label>
 
-            <input type="checkbox" name="Area" value="Bianca">
-            <label for="">Bianca</label>
+            <input type="checkbox" name="Area" value="Biologia">
+            <label for="">Biologia</label>
 
-            <input type="checkbox" name="Area" value="Tecnologias">
-            <label for="">Tecnologias</label>
+            <input type="checkbox" name="Area" value="Meio-Ambiente">
+            <label for="">Meio Ambiente</label>
+
+            <input type="checkbox" name="Area" value="Engenharia">
+            <label for="">Engenharia</label>
+
+            <input type="checkbox" name="Area" value="Historia">
+            <label for="">Historia</label>
+
             <br><br>
 
             <span>Mini-Curriculo</span>
-            <textarea name="curriculo" id="curriculo" cols="60" rows="10"></textarea>
+            <textarea name="curriculo" id="curriculo" cols="40" rows="10"
+                placeholder="Escreva um pouco sobre as suas experiencias e habilidades: (Opcional)"></textarea>
 
         </fieldset>
 
@@ -93,33 +109,41 @@
 </body>
 
 <script>
-
     const formulario = document.querySelector('#Formulario').addEventListener('submit', (event) => {
-
         event.preventDefault();
-        console.log('nome: ' + event.target.name.value);
-        console.log('endereço: ' + event.target.endereco.value);
-        console.log('cidade: ' + event.target.name.value);
-        console.log('estado: ' + event.target.estado.value);
+
+        // Verificar se todos os campos de dados pessoais estão preenchidos
+        const camposPessoais = ['#name', '#endereco', '#cidade', '#estado'];
+        const camposPreenchidos = camposPessoais.every(id => document.querySelector(id).value.trim() !== '');
+
+        if (!camposPreenchidos) {
+            alert('Por favor, preencha todos os campos de dados pessoais.');
+            return;
+        }
+
+        // Verificar se pelo menos um checkbox da área de cargo está selecionado
+        const checkboxesArea = document.querySelectorAll('input[name="Area"]:checked');
+        if (checkboxesArea.length === 0) {
+            alert('Por favor, selecione pelo menos uma área de cargo.');
+            return;
+        }
+
+        console.log('Nome: ' + event.target.name.value);
+        console.log('Endereço: ' + event.target.endereco.value);
+        console.log('Cidade: ' + event.target.cidade.value);
+        console.log('Estado: ' + event.target.estado.value);
 
         console.log('Natureza do Cargo: ' + document.querySelector('input[name="Dados"]:checked').value);
 
-        const area = []
+        const area = [];
+        checkboxesArea.forEach(c => {
+            area.push(c.value);
+        });
 
-        const checkedBox = document.getElementsByName('Area')
-        checkedBox.forEach(c => {
-            if (c.checked) {
-                area.push(c.value);
-            }
-        })
-        console.log('Area de cargo: ' + area.join(', '));
+        console.log('Área de Cargo: ' + area.join(', '));
 
-
-
-
-
-    })
-
+        console.log('Mini-Curriculo: ' + event.target.curriculo.value);
+    });
 </script>
 
 </html>
