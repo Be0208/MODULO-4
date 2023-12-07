@@ -1,6 +1,6 @@
 const mensagensCountainer = document.querySelector('.messages-list')
 
-//___________________________________________________________________________________________ *percorre* a api e cria um modelo html a cada elemento do array
+//_____________________________________   *percorre* a api e cria um modelo html a cada elemento do array
 async function fetchMensages() { console.log('____Novo______');
     try{
         const response = await api.get('/notes')
@@ -34,10 +34,10 @@ fetchMensages()
 
 // __________________________________________criar
 
-async function createNewMessage() {
+async function createNewMessage(mensage) {
     const newMessage = {
-      title: 'AXIOOOOSSSSSS dos guris',
-      description: 'todo dia',
+      title: 'opala',
+      description: ' 6 caneco, ta fumando, batendo valvula, diferencial trazeiro ta trincado. R$10000 no Pixxx',
       user_id: 420
     }
   
@@ -85,7 +85,7 @@ async function updateMessages(){
 //______________________________deletar 
 
 async function deletMessages(){ 
-
+ 
 
     try {
         const response = await api.delete(`/notes/196`)

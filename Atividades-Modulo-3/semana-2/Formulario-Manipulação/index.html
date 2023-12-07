@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            text-align: left;
+        }
+
+        input,
+        select,
+        button,
+        fieldset {
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Formulario</h1>
+
+    <form id="Formulario">
+        <fieldset>
+            <legend>Dados pessoais</legend>
+
+            <label for="nome">Nome: </label>
+            <input type="text" id="name">
+            <br>
+
+            <label for="endereco">Endereço: </label>
+            <input type="text" id="endereco">
+            <br>
+
+            <label for="cidade">cidade</label>
+            <input type="text" id="cidade">
+
+            <br>
+
+            Estado:
+            <select name="estado" id="estado"> Estado:
+                <option value="">Selecione uma cidade</option>
+                <option value="rioGrandeDoSuul">Rio Grande Do Sul</option>
+                <option value="santaCatarina">Santa Catarina</option>
+                <option value="bahia">Bahia</option>
+            </select>
+            <br>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Dados profissionais</legend>
+
+            <legend>Natureza do Cargo</legend>
+            <input value="Gerencia" type="radio" name="Dados" checked>
+            <label for="Dados">Gerencia</label>
+
+            <input value="Financeiro" type="radio" name="Dados">
+            <label for="">Financeiro</label>
+
+            <input type="radio" name="Dados">
+            <label for="">Recepçao</label>
+            <br><br>
+
+            <legend>Area de cargo</legend>
+
+            <input type="checkbox" name="Area" value="Computaçao" checked>
+            <label for="">Computação</label>
+
+            <input type="checkbox" name="Area" value="Bianca">
+            <label for="">Bianca</label>
+
+            <input type="checkbox" name="Area" value="Tecnologias">
+            <label for="">Tecnologias</label>
+            <br><br>
+
+            <span>Mini-Curriculo</span>
+            <textarea name="curriculo" id="curriculo" cols="60" rows="10"></textarea>
+
+        </fieldset>
+
+        <button class="btn-submit"> Enviar</button>
+        <button class="btn-submit" type="reset">Limpar</button>
+    </form>
+
+
+
+</body>
+
+<script>
+
+    const formulario = document.querySelector('#Formulario').addEventListener('submit', (event) => {
+
+        event.preventDefault();
+        console.log('nome: ' + event.target.name.value);
+        console.log('endereço: ' + event.target.endereco.value);
+        console.log('cidade: ' + event.target.name.value);
+        console.log('estado: ' + event.target.estado.value);
+
+        console.log('Natureza do Cargo: ' + document.querySelector('input[name="Dados"]:checked').value);
+
+        const area = []
+
+        const checkedBox = document.getElementsByName('Area')
+        checkedBox.forEach(c => {
+            if (c.checked) {
+                area.push(c.value);
+            }
+        })
+        console.log('Area de cargo: ' + area.join(', '));
+
+
+
+
+
+    })
+
+</script>
+
+</html>

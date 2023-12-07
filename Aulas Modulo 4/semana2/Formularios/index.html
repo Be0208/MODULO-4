@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        span {
+            display: none;
+        }
+
+        .error {
+            color: red;
+            padding: 10px 0;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<form>
+        <label for="email">Email:</label>
+        <input required id="email" type="email" placeholder="be@gmail.com">   <!-- tipo de campo e o valor de campo
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" maxlength="5" />
+
+        <label for="idade">Sua idade:</label>
+        <input type="number" id="idade" />
+
+        <label for="curriculo">Seu curriculo:</label>
+        <input type="file" id="curriculo" />
+
+        <label for="cor">Sua cor:</label>
+        <input type="color" id="cor" />
+
+        <input type="hidden" id="id" />   <!--usado para enviar informaçao sem ter que mostrar no front-end
+
+        <button type="submit">Enviar</button>
+    </form> -->
+
+    <!-- agrupar um grupo de campos um tipo de container-->
+    <form>
+        <fieldset>
+            <legend>Imformaçoes pessoas</legend>
+
+            <label for="nome">nome</label>
+            <input type="text" id="name">
+
+            <label for="email">email</label>
+            <input type="email" id="email">
+        </fieldset>
+
+
+        <br>
+
+        <fieldset>
+            <legend>Endereços</legend>
+
+            <label for="endereço">Endereço:</label>
+            <input type="text" id="endereço">
+
+            <label for="cidade">cidade</label>
+            <input type="text" id="cidade">
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Esporte favorita</legend>
+
+            <input type="radio" name="esporte" checked>
+            <label for="">Motocross</label>
+
+            <input type="radio" name="esporte">
+            <label for="">Tenis</label>
+
+            <input type="radio" name="esporte">
+            <label for="">Basquete</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Interesses:</legend>
+
+            <input type="checkbox" name="Interesse" checked>
+            <label for="">Motos</label>
+
+            <input type="checkbox" name="Interesse">
+            <label for="">Bianca</label>
+
+            <input type="checkbox" name="Interesse">
+            <label for="">Tecnologias</label>
+        </fieldset>
+
+        <br>
+
+        <select name="cidade" id="cidade">
+            <option value="">Selecione uma cidade</option>
+            <option value="Sp">Sao Paulo</option>
+            <option value="Poa">Porto alegre</option>
+            <option value="rJ">Rio de Janeiro</option>
+        </select>
+        <br><br>
+
+        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite uma caracteristica"></textarea>
+
+        <br><br>
+
+        <input type="submit" value="Cadastrar Usuario"> <!-- outro tipo de button -->
+
+        <button type="submit">Enviar</button>
+
+
+
+    </form>
+
+    <br><br><br><br>
+
+    <form id="interessesForm">
+        <fieldset>
+            <legend>Interesses</legend>
+
+            <input id="esporte" type="checkbox" name="interesses" />
+            <label for="esporte">Bianca</label>
+
+            <input id="tecnologia" type="checkbox" name="interesses" />
+            <label for="tecnologia">Motos</label>
+        </fieldset>
+
+        <span>Escolha pelo menos um interesse</span>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+
+</body>
+
+<script src="./js/script.js"></script>
+
+</html>
