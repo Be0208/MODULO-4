@@ -17,9 +17,20 @@ async function fetchMensages() { console.log('____Novo______');
             mensageCard.innerHTML = `
             <h2 class="card-title">${mensage.title}</h2>
             <P class="card-description">${mensage.description}</P>
+            <div class="card-icons">
+            <i class="fas fa-solid fa-trash" data-id=${mensage.id}></i>
+            <i class="fas fa-regular fa-edit" data-id=${mensage.id}></i>
+            </div>
             `
  
             mensagensCountainer.appendChild(mensageCard)
+
+            const deletIcon = mensageCard.querySelector('.fa-trash')
+            deletIcon.addEventListener('click', () =>{
+                const messageId = deletIcon.getAttribute('data-id')
+
+                deletMessages(messageId)
+            })
         })
 
     } catch (e){
@@ -84,21 +95,7 @@ async function updateMessages(){
 
 //______________________________deletar 
 
-async function deletMessages(){ 
- 
 
-    try {
-        const response = await api.delete(`/notes/196`)
-        
-
-        if (response.status === 200) {
-            alert('recado excluido com sucesso')
-        }
-    } catch (err){
-        console.log('erro' + err);
-    }
-    fetchMensages()
-}
 // deletMessages()
 
 
