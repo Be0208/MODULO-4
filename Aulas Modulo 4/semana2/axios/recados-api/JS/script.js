@@ -1,7 +1,7 @@
 const mensagensCountainer = document.querySelector('.messages-list')
 
 //_____________________________________   *percorre* a api e cria um modelo html a cada elemento do array
-async function fetchMensages() { console.log('____Novo______');
+async function fetchMenssages() { console.log('____Novo______');
     try{
         const response = await api.get('/notes')
         const mensages = response.data
@@ -31,73 +31,29 @@ async function fetchMensages() { console.log('____Novo______');
 
                 deletMessages(messageId)
             })
-        })
 
-    } catch (e){
-        console.log(e, "erro");
+            const editIcon = mensageCard.querySelector('.fa-edit')
+      editIcon.addEventListener('click', () => {
+        const messageId = editIcon.getAttribute('data-id')
+
+        navigateToEditPage(messageId)
+      })
+    });
+
+    if (mensages.length === 0) {
+      const h3 = document.createElement('h3')
+      h3.textContent = 'Nenhum recado cadastrado.'
+      mensagensCountainer.appendChild(h3)
     }
-}    
-fetchMensages()
-//__________________________________________________________________________________________
-
-
-
-
-// __________________________________________criar
-
-async function createNewMessage(mensage) {
-    const newMessage = {
-      title: 'opala',
-      description: ' 6 caneco, ta fumando, batendo valvula, diferencial trazeiro ta trincado. R$10000 no Pixxx',
-      user_id: 420
-    }
-  
-    try {
-      const response = await api.post('/notes', newMessage)
-  
-      if (response.status === 201) {
-        alert('Recado cadastrado com sucesso!')
-      }
-    } catch (error) {
-      console.log('Erro ao cadastrar recado', error)
-    }
-
-    fetchMensages()
+  } catch (error) {
+    console.log('Erro ao buscar mensagens', error)
   }
+}    
+fetchMenssages()
+//__________________________________________________________________________________________
+function navigateToEditPage(messageId) {
+    location.href = `editar-menssages.html?id=${messageId}`
 
-//   createNewMessage()
-
-
-
-// ____________________________________editar
-
-async function updateMessages(){
-    const editMenssages = {
-        title: 'mas bahh',
-        description: 'todo santo dia',
-    }
-    try {
-        const idMessage = 194
-        const response = await api.put(`/notes/${ idMessage }`, editMenssages);
-
-        if (response.status === 200) {
-            alert('recado atualizado com sucesso')
-        }
-    } catch (err){
-        console.log();
-    }
-
-    fetchMensages()
 }
-
-// updateMessages()
-
-
-//______________________________deletar 
-
-
-// deletMessages()
-
-
 
 // funçao geral
