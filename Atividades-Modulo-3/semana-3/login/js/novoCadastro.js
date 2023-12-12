@@ -15,7 +15,6 @@ formNewUsuario.addEventListener('submit', (event) => {
 
   if (!newUsuario) {
     senhaInput.classList.add('.form-control.error')
-    return null
   }
 
 
