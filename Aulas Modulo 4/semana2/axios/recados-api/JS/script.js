@@ -1,6 +1,6 @@
 const mensagensCountainer = document.querySelector('.messages-list')
 
-//_____________________________________   *percorre* a api e cria um modelo html a cada elemento do array
+// *percorre* a api e cria um modelo html a cada elemento do array
 async function fetchMenssages() { console.log('____Novo______');
     try{
         const response = await api.get('/notes')
