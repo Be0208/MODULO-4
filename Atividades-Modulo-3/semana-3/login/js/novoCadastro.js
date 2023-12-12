@@ -1,31 +1,44 @@
 const formNewUsuario = document.getElementById('form-new-message')
 
-const emailInput = document.getElementById('#email')
-const senhaInput = document.getElementById('#senha')
+const usuarioInput = document.getElementById('name')
+const loginInput = document.getElementById('login')
+const senhaInput = document.getElementById('password')
+ 
+formNewUsuario.addEventListener('submit', (event) => {
+  event.preventDefault()
 
- formNewUsuario.addEventListener('submit', (event) => {
-  event.preventDefault() // impede comportamento padrão submit
 
   const newUsuario = {
-    email: emailInput.value,
-    senha: senhaInput.value,
+    name: usuarioInput.value,
+    password: senhaInput.value,
+    login: loginInput.value,
+  }
+
+  if (!newUsuario) {
+    senhaInput.classList.add('.form-control.error')
+    return null
   }
 
   createNewUsuario(newUsuario)
 })
 
+
 async function createNewUsuario(usuario) {
     try {
-      const response = await api.post('/users', usuario)
+      const response = await api2.post('/users', usuario)
+      console.log(response.data);
+
   
       if (response.status === 201) {
         alert('Recado cadastrado com sucesso!')
 
-        emailInput.value = ""
+        usuarioInput.value = ""
         senhaInput.value = ""
+        loginInput.value = ""
 
       }
     } catch (error) {
       console.log('Erro ao cadastrar recado', error)
     }
   }
+
