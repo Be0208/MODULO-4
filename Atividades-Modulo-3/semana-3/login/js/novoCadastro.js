@@ -28,7 +28,7 @@ async function createNewUsuario(usuario) {
       const response = await api2.post('/users', usuario)
       console.log(response.data);
 
-  
+
       if (response.status === 201) {
         alert('Recado cadastrado com sucesso!')
 
