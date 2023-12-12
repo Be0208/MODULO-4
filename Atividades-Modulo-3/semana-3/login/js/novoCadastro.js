@@ -7,7 +7,6 @@ const senhaInput = document.getElementById('password')
 formNewUsuario.addEventListener('submit', (event) => {
   event.preventDefault()
 
-
   const newUsuario = {
     name: usuarioInput.value,
     password: senhaInput.value,
@@ -18,6 +17,14 @@ formNewUsuario.addEventListener('submit', (event) => {
     senhaInput.classList.add('.form-control.error')
     return null
   }
+
+
+  localStorage.setItem('name', usuarioInput.value)
+  localStorage.setItem('login', loginInput.value)
+  localStorage.setItem('password', senhaInput.value)
+
+  // sessionStorage.clear()
+
 
   createNewUsuario(newUsuario)
 })
@@ -41,4 +48,8 @@ async function createNewUsuario(usuario) {
       console.log('Erro ao cadastrar recado', error)
     }
   }
+
+
+
+
 
