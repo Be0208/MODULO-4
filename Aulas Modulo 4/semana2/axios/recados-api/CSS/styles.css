@@ -148,3 +148,71 @@ a {
 .btn-submit:hover {
   background: #0a936a;
 }
+
+/* Estilos dos cards de recado */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #212529;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #495057;
+  margin-top: 10px;
+}
+
+.card-icons {
+  margin-top: 20px;
+}
+
+.card-icons i {
+  font-size: 1rem;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.card-icons .fa-edit {
+  color: #087F5B;
+}
+
+.card-icons .fa-trash {
+  color: #a50000;
+}
+
+.card-icons i:hover {
+  opacity: 0.7;
+}
+
+/* Estilo para a div de paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 3rem;
+}
+
+/* Estilo para os botões de página */
+.pagination button {
+  background-color: #087F5B;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Estilo para o botão de página ativa */
+.pagination button.active {
+  background-color: #0a936a;
+}
