@@ -44,7 +44,7 @@ async function updateMessage(messageId, editMessage) {
       alert('Recado atualizado com sucesso!')
     }
 
-    location.href = "listar.html"
+    location.href = "listar-recados.html"
   } catch (error) {
     console.log('Erro ao atualizar recado.')
   }

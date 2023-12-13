@@ -1,11 +1,30 @@
 const messagesContainer = document.querySelector('.messages-list')
 
-async function fetchMessages() {
+// conts das pages faltando para funcionar
+let currentPages = 1
+let totalPages = 1
+
+async function fetchMessages(page) {
   try {
-    const response = await api.get('/notes')
-    const messages = response.data
+    const userId = localStorage.getItem('userId')
+
+    if (!userId) {
+      alert("Você precisa fazer login para visualizar os recados.")
+
+      return
+    }
+
+    const params = {
+      page,
+      perPage: 20
+    }
+
+    const response = await api.get(`/notes/${userId}`, { params })
+    const messages = response.data.userMessages
 
     console.log(messages)
+
+    totalPages = response.data.totalPages
 
     messagesContainer.innerHTML = ''
 
@@ -50,8 +69,22 @@ async function fetchMessages() {
   }
 }
 
-fetchMessages()
+fetchMessages(currentPages)
 
 function navigateToEditPage(messageId) {
   location.href = `editar-recado.html?id=${messageId}`
 }
+
+prevPage.addEventListener('click', () => {
+  if (currentPages > 1) {
+    currentPages--
+    fetchMessages(currentPages)
+  }
+})
+
+nextPage.addEventListener('click', () => {
+  if (currentPages < totalPages) {
+    currentPages++
+    fetchMessages(currentPages)
+  }
+})
