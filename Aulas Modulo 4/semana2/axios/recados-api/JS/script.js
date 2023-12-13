@@ -1,38 +1,46 @@
-const mensagensCountainer = document.querySelector('.messages-list')
+const messagesContainer = document.querySelector('.messages-list')
 
-// *percorre* a api e cria um modelo html a cada elemento do array
-async function fetchMenssages() { console.log('____Novo______');
-    try{
-        const response = await api.get('/notes')
-        const mensages = response.data
+async function fetchMessages() {
+  try {
+    const userId = localStorage.getItem('userId')
 
-        console.log(mensages);
+    if (!userId) {
+    alert('Precisa fazer login')
 
-        mensagensCountainer.innerHTML = '' //tudo que estiver dentro ele vai transformar numa string vazia
+    return
+    }
 
-        mensages.forEach(mensage => {
-            const mensageCard = document.createElement('div')
-            mensageCard.classList.add('card')
+    const response = await api.get(`/notes/${userId}`)
+    const messages = response.data
 
-            mensageCard.innerHTML = `
-            <h2 class="card-title">${mensage.title}</h2>
-            <P class="card-description">${mensage.description}</P>
-            <div class="card-icons">
-            <i class="fas fa-solid fa-trash" data-id=${mensage.id}></i>
-            <i class="fas fa-regular fa-edit" data-id=${mensage.id}></i>
-            </div>
-            `
- 
-            mensagensCountainer.appendChild(mensageCard)
+    console.log(messages)
 
-            const deletIcon = mensageCard.querySelector('.fa-trash')
-            deletIcon.addEventListener('click', () =>{
-                const messageId = deletIcon.getAttribute('data-id')
+    messagesContainer.innerHTML = ''
 
-                deletMessages(messageId)
-            })
+    messages.forEach(message => {
+      const messageCard = document.createElement('div')
+      messageCard.classList.add('card')
 
-            const editIcon = mensageCard.querySelector('.fa-edit')
+      messageCard.innerHTML = `
+        <h2 class="card-title">${message.title}</h2>
+        <p class="card-description">${message.description}</p>
+        <div class="card-icons">
+          <i class="fas fa-solid fa-trash" data-id=${message.id}></i>
+          <i class="fas fa-regular fa-edit" data-id=${message.id}></i>
+        </div>
+      `
+
+      messagesContainer.appendChild(messageCard)
+
+      const deleteIcon = messageCard.querySelector('.fa-trash')
+
+      deleteIcon.addEventListener('click', () => {
+        const messageId = deleteIcon.getAttribute('data-id')
+
+        deleteMessage(messageId)
+      })
+
+      const editIcon = messageCard.querySelector('.fa-edit')
       editIcon.addEventListener('click', () => {
         const messageId = editIcon.getAttribute('data-id')
 
@@ -40,20 +48,18 @@ async function fetchMenssages() { console.log('____Novo______');
       })
     });
 
-    if (mensages.length === 0) {
+    if (messages.length === 0) {
       const h3 = document.createElement('h3')
       h3.textContent = 'Nenhum recado cadastrado.'
-      mensagensCountainer.appendChild(h3)
+      messagesContainer.appendChild(h3)
     }
   } catch (error) {
     console.log('Erro ao buscar mensagens', error)
   }
-}    
-fetchMenssages()
-//__________________________________________________________________________________________
-function navigateToEditPage(messageId) {
-    location.href = `editar-menssages.html?id=${messageId}`
-
 }
 
-// funçao geral
+fetchMessages()
+
+function navigateToEditPage(messageId) {
+  location.href = `editar-recado.html?id=${messageId}`
+}

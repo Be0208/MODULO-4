@@ -14,22 +14,22 @@ formNewMessage.addEventListener('submit', (event) => {
     user_id: 1
   }
 
-  createNewMessages(newMessage)
+  createNewMessage(newMessage)
 })
 
-async function createNewMessages(message) {
-    try {
-      const response = await api.post('/notes', message)
-  
-      if (response.status === 201) {
-        alert('Recado cadastrado com sucesso!')
-  
-        titleInput.value = ""
-        descriptionInput.value = ""
-  
-        location.href = "index.html"
-      }
-    } catch (error) {
-      console.log('Erro ao cadastrar recado', error)
+async function createNewMessage(message) {
+  try {
+    const response = await api.post('/notes', message)
+
+    if (response.status === 201) {
+      alert('Recado cadastrado com sucesso!')
+
+      titleInput.value = ""
+      descriptionInput.value = ""
+
+      location.href = "index.html"
     }
+  } catch (error) {
+    console.log('Erro ao cadastrar recado', error)
   }
+}
