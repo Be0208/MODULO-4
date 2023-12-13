@@ -1,7 +1,10 @@
 const messagesContainer = document.querySelector('.messages-list')
 
-// conts das pages faltando para funcionar
-let currentPages = 1
+const prevPage = document.getElementById('prevPage')
+const nextPage = document.getElementById('nextPage')
+
+// Variáveis globais
+let currentPage = 1
 let totalPages = 1
 
 async function fetchMessages(page) {
@@ -16,7 +19,7 @@ async function fetchMessages(page) {
 
     const params = {
       page,
-      perPage: 20
+      perPage: 3
     }
 
     const response = await api.get(`/notes/${userId}`, { params })
@@ -69,22 +72,22 @@ async function fetchMessages(page) {
   }
 }
 
-fetchMessages(currentPages)
+fetchMessages(currentPage)
 
 function navigateToEditPage(messageId) {
   location.href = `editar-recado.html?id=${messageId}`
 }
 
 prevPage.addEventListener('click', () => {
-  if (currentPages > 1) {
-    currentPages--
-    fetchMessages(currentPages)
+  if (currentPage > 1) {
+    currentPage--
+    fetchMessages(currentPage)
   }
 })
 
 nextPage.addEventListener('click', () => {
-  if (currentPages < totalPages) {
-    currentPages++
-    fetchMessages(currentPages)
+  if (currentPage < totalPages) {
+    currentPage++;
+    fetchMessages(currentPage)
   }
 })
