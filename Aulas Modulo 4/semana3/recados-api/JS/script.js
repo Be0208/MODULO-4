@@ -19,6 +19,7 @@ async function fetchMessages(page) { //faz a requisição para a api
 
     if (!userId) {
       alert("Você precisa fazer login para visualizar os recados.")
+      location.href = "index.html"
 
       return
     }
