@@ -22,7 +22,7 @@ async function login(data) {
       const userData = response.data
 
       localStorage.setItem('userId', userData.userId)
-      location.href = "listar-recados.html"
+      location.href = "cadastrar-recado.html"
     }
   } catch (error) {
     console.log('Erro ao fazer login', error)

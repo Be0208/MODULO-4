@@ -46,17 +46,17 @@ router.post('/login', async (request, response) => {
 
   const user = users.find(user => user.email === email)
 
+  if (!user) {
+    return response.status(404).json({
+      message: "Usuário não encontrado."
+    })
+  }
+
   const passwordMatch = await bcrypt.compare(password, user.password)
 
   if (!passwordMatch) {
     return response.status(400).json({
       message: "Credenciais inválidas."
-    })
-  }
-
-  if (!user) {
-    return response.status(404).json({
-      message: "Usuário não encontrado."
     })
   }
 

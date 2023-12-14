@@ -1,9 +1,9 @@
 const messagesContainer = document.querySelector('.messages-list')
 
-const prevPage = document.getElementById('prevPage')
-const nextPage = document.getElementById('nextPage')
+const prevPage = document.getElementById('prevPage') //paginação
+const nextPage = document.getElementById('nextPage') //paginação
 
-// Variáveis globais
+// Variáveis globais para a PAGINAÇÂO
 let currentPage = 1
 let totalPages = 1
 
@@ -17,7 +17,7 @@ async function fetchMessages(page) {
       return
     }
 
-    const params = {
+    const params = { // PARAMETROS para a minha PAGINAÇÃO de listas
       page,
       perPage: 3
     }
@@ -27,7 +27,7 @@ async function fetchMessages(page) {
 
     console.log(messages)
 
-    totalPages = response.data.totalPages
+    totalPages = response.data.totalPages //denomina o total de paginas dentro desta variavel dinamica
 
     messagesContainer.innerHTML = ''
 
@@ -72,20 +72,20 @@ async function fetchMessages(page) {
   }
 }
 
-fetchMessages(currentPage)
+fetchMessages(currentPage) //o o valor da pagina "1, 2, 3, 4, ..."
 
 function navigateToEditPage(messageId) {
   location.href = `editar-recado.html?id=${messageId}`
 }
 
-prevPage.addEventListener('click', () => {
+prevPage.addEventListener('click', () => { //o evento que vai acontecer ao eu clicar no botão "prevPage"
   if (currentPage > 1) {
     currentPage--
     fetchMessages(currentPage)
   }
 })
 
-nextPage.addEventListener('click', () => {
+nextPage.addEventListener('click', () => { //o evento que vai acontecer ao eu clicar no botão "nextPage"
   if (currentPage < totalPages) {
     currentPage++;
     fetchMessages(currentPage)
