@@ -17,9 +17,9 @@
 
 <body>
     <div class="container">
+
         <header class="header">
             <img class="logo" src="./images/logo.svg" alt="">
-
             <h1 class="title">Lista de Recados</h1>
             <h2 class="subtitle">Todos os meus recados</h2>
         </header>
@@ -30,11 +30,18 @@
             </div>
 
             <div class="pagination"> <!--  DIV QUE CONTEM A PAGINAÇÂO-->
+                <button id="frist">frist</button>
                 <button id="prevPage">Anterior</button>
                 <div id="pageNumbers"></div>
                 <button id="nextPage">Próxima</button>
+                <button id="last">last</button>
             </div>
         </main>
+
+        <footer>
+            <h4 style="text-align: center;">Cadastre mais recados aqui:</h4>
+            <button class="btn-submit" id="newRecado">Cadastrar Recado</button>
+        </footer>
     </div>
 
     <script src="https://kit.fontawesome.com/f9e19193d6.js"></script>

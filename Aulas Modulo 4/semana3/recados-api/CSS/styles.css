@@ -202,7 +202,8 @@ a {
 }
 
 /* Estilo para os botões de página */
-.pagination button {
+.pagination button,
+#pageNumbers {
   background-color: #087F5B;
   color: #fff;
   border: none;
