@@ -3,6 +3,7 @@ const messagesContainer = document.querySelector('.messages-list')
 const prevPage = document.getElementById('prevPage') //paginação
 const nextPage = document.getElementById('nextPage') //paginação
 const pageNumbers = document.getElementById('pageNumbers')
+const numbers = document.getElementById('numbers')
 const fristPage = document.getElementById('frist')
 const lastPage = document.getElementById('last')
 
@@ -34,10 +35,12 @@ async function fetchMessages(page) { //faz a requisição para a api
 
     totalPage = response.data.totalPages//denomina o total de paginas dentro desta variavel dinamica
     
-    // pageNumbers.innerText = `${currentPage} de ${totalPage}`
+    numbers.innerText = `${currentPage} de ${totalPage}` // mostra qual pagina vc esta de quantas paginas existem
 
-    for (let contador = 1; contador < totalPage; contador++) {
-      pageNumbers.innerHTML += `<button onclick=fetchMessages(${contador}) >${contador}</button>`
+    if(!pageNumbers.children.length){
+      for(let contador = 1; contador <= totalPage; contador++){
+        pageNumbers.innerHTML += `<button onclick=fetchMessages(${contador}) >${contador}</button>`   // fez um botão para cada pagina
+     }
     }
 
     messagesContainer.innerHTML = ''

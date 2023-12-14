@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 1rem;
 }
 
 body,
@@ -202,18 +203,18 @@ a {
 }
 
 /* Estilo para os botões de página */
-.pagination button,
-#pageNumbers {
+.pagination button {
   background-color: #087F5B;
   color: #fff;
   border: none;
   padding: 10px 15px;
   margin: 0 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* Estilo para o botão de página ativa */
 .pagination button.active {
   background-color: #0a936a;
 }
+
