@@ -12,6 +12,7 @@ formNewMessage.addEventListener('submit', (event) => {
 
   if (!userId) {
     alert('Você precisa fazer login para cadastrar um recado.')
+    location.href = "index.html"
   }
 
   const newMessage = {
