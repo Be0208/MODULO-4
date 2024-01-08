@@ -30,7 +30,7 @@ async function fetchMessages(page) { //faz a requisição para a api
     }
 
     const response = await api.get(`/notes/${userId}`, { params })
-    const messages = response.data.userMessages
+    const messages = response.data.userMessages //array com todos os recados "do userId"
 
     console.log(messages)
 

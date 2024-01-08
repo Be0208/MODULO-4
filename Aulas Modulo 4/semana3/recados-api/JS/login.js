@@ -9,9 +9,24 @@ formLogin.addEventListener('submit', (e) => {
   const data = {
     email: emailInput.value,
     password: passwordInput.value,
+  } 
+
+  if (!emailInput.value) {
+    setError(emailInput, "Email é Obrigatorio!")
+  } else {
+    setSuccess(emailInput)
+  }
+  if (!passwordInput.value) {
+    setError(passwordInput, "Senha Obrigatoria!")
+  } else if ((passwordInput.value).length < 6) {
+    setError(passwordInput, "Senha deve conter no minimo 6 digitos")
+  } else {
+    setSuccess(passwordInput)
   }
 
-  login(data)
+  if (emailInput.value && (passwordInput.value).length >= 6) {
+    login(data)
+  }
 })
 
 async function login(data) {
@@ -27,4 +42,20 @@ async function login(data) {
   } catch (error) {
     console.log('Erro ao fazer login', error)
   }
+}
+
+function setError(input, message) {
+
+  const formControl = input.parentElement
+  const small = formControl.querySelector('small')
+
+  small.textContent = message
+  formControl.classList.remove('success')
+  formControl.classList.add('error')
+}
+
+function setSuccess(input) {
+  const formControl = input.parentElement
+  formControl.classList.remove('error')
+  formControl.classList.add('success')
 }
