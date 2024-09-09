@@ -20,7 +20,6 @@ router.post('/', (request, response) => {
       message: "Usuário não encontrado."
     })
   }
-
   const newMessage = {
     id: uuidv4(),
     title,
